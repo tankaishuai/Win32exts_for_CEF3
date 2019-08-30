@@ -86,9 +86,8 @@ win32exts.co_release(wsh);
 //
 // 7. sample: test COM object to launch notepad.exe using another method
 //
-wsh = new ActiveXObject("Win32exts.win32atls");
-wsh.load_sym("*", "*");
-wsh.WinExec("notepad", 1);
+wsh = new ActiveXObject("Wscript.Shell");
+wsh.Run("notepad", 1);
 
 
 //
