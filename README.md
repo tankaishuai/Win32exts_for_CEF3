@@ -5,7 +5,7 @@ Win32exts_for_CEF3 是一个有用的工具，它能够允许你在你的谷歌�
 
 ======================================
 
-让CEF框架支持 COM/ActiveX控件
+# 让CEF框架支持 COM/ActiveX控件
 
 2019-08-17 11:22:14 tan_kaishuai 阅读数 222 文章标签： CEF ActiveX COM 插件
 
@@ -111,7 +111,7 @@ virtual void OnContextCreated(...) {
 
 /*********************************  ver 31.2019.10.20  ******************************
 
-除原来的 ActiveXObject 之外， 新增对 ActiveX 控件的支持： 
+## 除原来的 ActiveXObject 之外， 新增对 ActiveX 控件的支持： 
 
 创建：
 
@@ -125,7 +125,8 @@ var activex_ctrl = new ActiveXControl("prog_id", parent_wnd, x, y, r, b)
 引擎传入的 SetRemoteBrowser( hwnd ) 浏览器句柄。）
 
 
-每个控件都含有下列几个 Ax_*** 开头的内置的成员函数：
+
+## 每个控件都含有下列几个 Ax_*** 开头的内置的成员函数：
 
 ptr = activex_ctrl.Ax_GetRaw()
 
@@ -142,7 +143,8 @@ activex_ctrl.Ax_MoveWindow( [z_order] or [x, y] or [x, y, r, b] )
 strInfo = activex_ctrl.Ax_ListSym()
 
 
-一个控件有哪些方法、属性可以通过 Ax_ListSym() 函数查看，当然也可以用其他工具。
+
+## 一个控件有哪些方法、属性可以通过 Ax_ListSym() 函数查看，当然也可以用其他工具。
 
 例如笔者开发的 90坦克大战 游戏控件：
 
@@ -175,6 +177,7 @@ GetAppPath=1610809360(0)
 InputMsgBox=1610809361(0)
 
 
+
 调用控件方法：
 
 ret = activex_ctrl.FunctionName( args ... )
@@ -193,7 +196,7 @@ activex_ctrl.put_AttributeName( new_val )
 
  
 
-示例用法如下：
+## 示例用法如下：
 
     //创建游戏控件
 
