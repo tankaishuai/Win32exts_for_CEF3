@@ -1,5 +1,3 @@
-//alert("test_js")
-
 function test_activex(){
 	//创建游戏控件
 	bbb = new ActiveXControl("Tank90Control.Tank90", -2)
