@@ -107,6 +107,19 @@ virtual void OnContextCreated(...) {
 
 然后，该CEF浏览器即支持了在js脚本 中加载ActiveX控件的能力，
 
+
+![win32exts_for_cef3](https://github.com/tankaishuai/Win32exts_for_CEF3/blob/master/cef_load_ActiveX_demo/test_case1.jpg)
+
+
+创建控件示例代码：
+
+![win32exts_for_cef3](https://github.com/tankaishuai/Win32exts_for_CEF3/blob/master/cef_load_ActiveX_demo/test_js.png)
+
+
+![win32exts_for_cef3](https://github.com/tankaishuai/Win32exts_for_CEF3/blob/master/cef_load_ActiveX_demo/test_case2.png)
+![win32exts_for_cef3](https://github.com/tankaishuai/Win32exts_for_CEF3/blob/master/cef_load_ActiveX_demo/test_case3.png)
+![win32exts_for_cef3](https://github.com/tankaishuai/Win32exts_for_CEF3/blob/master/cef_load_ActiveX_demo/test_case4.png)
+
  
 
 /*********************************  ver 31.2019.10.20  ******************************
