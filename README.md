@@ -54,7 +54,7 @@ virtual void OnContextCreated(...) {
 
     //
 
-    typedef bool (* RegisterActiveXObject_CEF_T)(CefV8Value *windowObject, LPVOID lpReserved1, LPVOID lpReserved2);
+    typedef bool (* RegisterActiveXObject_CEF_T)(CefV8Value *windowObject, HWND hWnd, LPVOID lpReserved);
 
     typedef void (* SetRemoteBrowser_CEF_T)(HWND hWnd);
 
@@ -78,7 +78,7 @@ virtual void OnContextCreated(...) {
 
         if (pfnRegisterActiveXObject_CEF){
 
-            pfnRegisterActiveXObject_CEF(windowObject, NULL, NULL);
+            pfnRegisterActiveXObject_CEF(windowObject, g_hRemoteBrowser, NULL);
 
         }
 
