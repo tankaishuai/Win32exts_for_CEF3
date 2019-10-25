@@ -69,10 +69,10 @@ event_sink.handler_s102 = function( args ){
 	// do something
 }
 
-activex_ctrl.Ax_ListenEvent( "34A715A0-6587-11D0-924A-0020AFC7AC4D", event_sink )
+activex_ctrl.Ax_ListenEvent( "{34A715A0-6587-11D0-924A-0020AFC7AC4D}", event_sink )
 
 取消事件监听：
-activex_ctrl.Ax_ListenEvent( "34A715A0-6587-11D0-924A-0020AFC7AC4D", null )
+activex_ctrl.Ax_ListenEvent( "{34A715A0-6587-11D0-924A-0020AFC7AC4D}", null )
 
 
 *************************************************************/
