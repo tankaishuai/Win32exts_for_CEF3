@@ -1,4 +1,4 @@
-﻿
+
 Win32exts_for_CEF3 是一个有用的工具，它能够允许你在你的谷歌嵌入式框架（CEF）项目内部的 js 脚本中，
 
 调用任意 Win32API 或者用户DLL导出API，乃至任意COM/ActiveX控件。
@@ -155,6 +155,8 @@ activex_ctrl.Ax_MoveWindow( [z_order] or [x, y] or [x, y, r, b] )
 
 strInfo = activex_ctrl.Ax_ListSym()
 
+cookie = activex_ctrl.Ax_ListenEvent( "event_iid", event_sink )
+
 
 
 ## 一个控件有哪些方法、属性可以通过 Ax_ListSym() 函数查看，当然也可以用其他工具。
@@ -196,14 +198,39 @@ InputMsgBox=1610809361(0)
 ret = activex_ctrl.FunctionName( args ... )
 
 
+
 获取属性：
 
 ret = activex_ctrl.get_AttributeName()
 
 
+
 修改属性：
 
 activex_ctrl.put_AttributeName( new_val )
+
+
+
+设置事件监听：
+
+var event_sink = {}
+
+event_sink.handler_259 = function( args ){
+	// do something
+}
+
+event_sink.handler_s102 = function( args ){
+	// do something
+}
+
+activex_ctrl.Ax_ListenEvent( "34A715A0-6587-11D0-924A-0020AFC7AC4D", event_sink )
+
+
+
+取消事件监听：
+
+activex_ctrl.Ax_ListenEvent( "34A715A0-6587-11D0-924A-0020AFC7AC4D", null )
+
 
 *************************************************************/
 
