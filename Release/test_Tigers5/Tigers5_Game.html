@@ -1,0 +1,26 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <title>五虎大战 - 龙虎斗（风云再起）</title>
+</head>
+
+	<body>
+
+	<script type="text/javascript" >
+		//创建游戏控件
+		var tigers5game = new ActiveXControl("工程2.Tigers5", -2)
+		tigers5game.Ax_MoveWindow(50, 50, 600, 600)
+		tigers5game.Ax_ShowWindow(1)
+	</script>
+
+<div style="position:absolute;left:610px;top:5px;">
+	<input type="button" value="开始游戏" name="B1" onclick="tigers5game.put_CaptionLBL('你好棒！！')" />
+	<input type="button" value="结束游戏" name="B1" onclick="tigers5game.put_CaptionLBL('你太Low了！！')" />
+
+	<p>【五虎大战 - 龙虎斗】<br><br> 大学时编写的一个小游戏控件，初步具备一定的 AI能力。 <br><br>
+		游戏规则：横向或者纵向一行一列如果连续存在： OXX 布局，且没有其它棋子，则对方的棋子将会被吃掉。
+	</p>
+</div>
+
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+
+
+//
+// 1. load all dlls
+//
+win32exts.load_sym("*", "*");
+/*
+win32exts.load_sym("kernel32", "*");
+win32exts.load_sym("gdi32", "*");
+win32exts.load_sym("shlwapi", "*");
+win32exts.load_sym("ntdll", "*");
+*/
+win32exts.CoInitialize(null)
+
+
+//
+// 2. malloc a buffer for later usage
+//
+g_buf = win32exts.malloc( 2*260 );
+
+
+//
+// 3. sample: call MessageBoxW/MessageBoxA
+//
+pid = win32exts.GetCurrentProcessId()
+win32exts.MessageBoxW(0, win32exts.L("start call MessageBoxW11"), win32exts.L(pid.toString()), 1);
+win32exts.MessageBoxA(0, "start call MessageBoxW22", "", 1);
+
+
+//
+// 4. sample: call GetModuleFileNameW
+//
+win32exts.GetModuleFileNameW(win32exts.current_dll(), g_buf, 260);
+strCurDll = win32exts.read_wstring(g_buf, 0, -1);
+
+
+//
+// 6. sample: test COM object to launch notepad.exe
+//
+wsh = new_ActiveXObject("Wscript.Shell");
+wsh.Exec("notepad");
+
+
+
+//
+// 7. sample: test COM object to launch calc.exe using another method
+//
+wsh = win32exts.co_create_object("Wscript.Shell");
+
+win32exts.co_push_start();
+win32exts.push_bstr("calc");
+win32exts.co_invoke(wsh, "Run");
+
+win32exts.co_release(wsh);
+
+
+//
+// 8. clean up
+//
+win32exts.free(g_buf);
+
+
+</script>
+
+		<head>
+				<meta charset="UTF-8">
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    		<title>Document</title>
+		</head>
+		<body>
+				<script src="win32exts.win32atls.js" />
+		</body>
+</html>
