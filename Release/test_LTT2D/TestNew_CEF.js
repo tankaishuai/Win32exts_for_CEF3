@@ -2,9 +2,11 @@
 
 if ("ActiveXControl" in window) {
   ConnectGraph = null;
+  //alert("create ax start");
   try {
-    ConnectGraph = new ActiveXControl("{2EE2706A-CAB1-436E-BC56-3EC2F4B1B0F6}", -2, 0, 30, 800, 600);
+    ConnectGraph = new window.ActiveXControl("{2EE2706A-CAB1-436E-BC56-3EC2F4B1B0F6}", -2, 0, 30, 800, 600);
   } catch (e) {
+	alert("create ax exception");
   }
 
   if (null == ConnectGraph) {
@@ -12,7 +14,24 @@ if ("ActiveXControl" in window) {
   } else {
     ConnectGraph.Ax_ShowWindow(1);
     //external.Log(ConnectGraph.Ax_ListSym());
+  } 
+}
+else if ("ActiveXControl" in external) {
+  var pfnActiveXControl = external.ActiveXControl;  // IEView 未实现复制语义，orz
+  ConnectGraph = null;
+  //alert("create ax start");
+  try {
+    ConnectGraph = external.ActiveXControl("{2EE2706A-CAB1-436E-BC56-3EC2F4B1B0F6}", -2, 0, 30, 800, 600);
+  } catch (e) {
+	alert("create ax exception");
   }
+
+  if (null == ConnectGraph) {
+    alert("create ConnectGraph ActiveXControl() error");
+  } else {
+    ConnectGraph.Ax_ShowWindow(1);
+    //external.Log(ConnectGraph.Ax_ListSym());
+  } 
 }
 
 ////////////////////////////////////////////////////////////////////////
