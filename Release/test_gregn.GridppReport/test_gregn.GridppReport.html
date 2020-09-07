@@ -1,0 +1,68 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+  <title>Grid++Report 是一款高性能高效率的报表开发工具 ...</title>
+</head>
+
+	<body>
+
+	<script type="text/javascript" >
+		//获取当前浏览器路径
+		var g_buf = win32exts.malloc(520)
+		win32exts.load_sym("*", "*")
+		win32exts.CoInitialize(null)
+		win32exts.GetModuleFileNameW(null, g_buf, 260)
+		win32exts.PathRemoveFileSpecW(g_buf)
+		var strPath = win32exts.read_wstring(g_buf, 0, -1)
+
+		//示例报表与数据库
+		var strGrf = strPath + "\\test_gregn.GridppReport\\test_worksheet.grf"
+		var strDb = strPath + "\\test_gregn.GridppReport\\test_database.mdb"
+
+		//创建显示控件对象
+		var gregnGRDisplayViewer = new ActiveXControl("gregn.GRDisplayViewer", -2)
+		gregnGRDisplayViewer.Ax_MoveWindow(50, 50, 600, 600)
+		gregnGRDisplayViewer.Ax_ShowWindow(1)
+		//alert("gregnGRDisplayViewer")
+
+		function doLoad(){
+			//创建报表对象
+			var gregnGridppReport = new ActiveXObject("gregn.GridppReport");
+			//alert(gregnGridppReport);
+
+			//加载报表
+			//alert(strGrf);
+			gregnGridppReport.LoadFromFile(strGrf);
+			//alert(strDb);
+
+			//设置数据源：Report.DetailGrid.Recordset.ConnectionString = *
+			//
+			var tmp = gregnGridppReport.get_DetailGrid();
+			tmp = tmp.get_Recordset();
+			tmp.put_ConnectionString("Provider=Microsoft.Jet.OLEDB.4.0;User ID=Admin;Data Source=" + strDb);
+			//alert("doLoad");
+
+			//开始读取并展示
+			gregnGRDisplayViewer.put_Report(gregnGridppReport)
+			gregnGRDisplayViewer.Start()
+		}
+
+		function doTest(){
+			alert("doTest")
+		}
+	</script>
+
+<div style="position:absolute;left:610px;top:5px;">
+	<input type="button" value="加载报表" name="B1" onclick="doLoad()" />
+	<input type="button" value="测试" name="B1" onclick="doTest()" />
+
+	<p>Grid++Report 是一款高性能高效率的报表开发工具，既可开发桌面软件(C/S软件)的报表与打印系统，也可开发WEB(B/S)软件的报表与打印系统。<br>
+	提供一个具有超强数据展现能力的数据网格(DataGrid)部件，制作各种表格报表非常简便；运行时可通过事件处理使报表与用户交互；<br>
+	针对票据套打进行了专门实现；总之Grid++Report是制作动态报表的最佳选择。提供可视化报表设计器，设计报表快速简单。<br>
+	Grid++Report除了提供打印功能外，还提供报表的查询显示功能，即如各种数据网格(DataGrid)控件一样显示数据，让报表的查询显示与打印一次实现，<br>
+	既提高开发效率又保持数据的一致性，这也是Grid++Report与其它报表工具的最大区别。
+	</p>
+</div>
+
+	</body>
+</html>
