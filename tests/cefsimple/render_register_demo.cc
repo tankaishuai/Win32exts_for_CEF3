@@ -17,8 +17,13 @@ void __InitWin32ExtsV8Core(CefRefPtr<CefV8Context> context) {
 	WCHAR szPath[MAX_PATH] = { 0 };
 	GetModuleFileNameW(NULL, szPath, MAX_PATH);
 	PathRemoveFileSpecW(szPath);
+#ifdef USE_EMBED_WIN32EXTS_FOR_CEF3
 	PathAppendW(szPath, L"libcef.dll");
+#else
+ PathAppendW(szPath, L"win32exts_web.dll");
+#endif
 	HMODULE hDll = LoadLibraryW(szPath);
+
 	if (hDll){
 		RegisterActiveXObject_CEF_T pfnRegisterActiveXObject_CEF =
 			(RegisterActiveXObject_CEF_T)GetProcAddress(hDll, "RegisterActiveXObject_CEF");

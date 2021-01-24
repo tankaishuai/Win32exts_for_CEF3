@@ -3,6 +3,9 @@
 // renamed from stdint.h to inttypes.h
 // long long <---->__int64
 
+#pragma once
+#ifdef USE_PRIVATE_SYS_STDINT
+
 #ifndef _STDINT_H
 #define _STDINT_H
 #define __need_wint_t
@@ -193,3 +196,7 @@ typedef unsigned __int64   uintmax_t;
 #endif//#if 0
 
 #endif
+
+#else  //USE_PRIVATE_SYS_STDINT
+#include <stdint.h>
+#endif //USE_PRIVATE_SYS_STDINT
