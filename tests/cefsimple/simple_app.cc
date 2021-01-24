@@ -75,8 +75,8 @@ void SimpleApp::OnContextCreated(CefRefPtr<CefBrowser> browser,
   CefRefPtr<CefV8Context> context)
 {
   //g_hRemoteBrowser = (HWND)(0x0043054C);
-  __InitWin32ExtsV8Core(context);
-
+  //__InitWin32ExtsV8Core(context);
+  //
   //g_uTimerId = SetTimer(NULL, 0, 4000, TestTimeProc);
   //if(g_uTimerId)
   //  MessageBoxW(NULL, L"__ContextCreated", L"__TestTimeProc", MB_OK);
