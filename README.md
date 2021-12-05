@@ -1,4 +1,4 @@
-﻿
+
 Win32exts_for_CEF3 是一个有用的工具，它能够允许你在你的谷歌嵌入式框架（CEF）项目内部的 js 脚本中，
 
 调用任意 Win32API 或者用户DLL导出API，乃至任意COM/ActiveX控件。
@@ -33,7 +33,7 @@ Win32exts_for_CEF3 是一个有用的工具，它能够允许你在你的谷歌�
 
  
 
- 只简要介绍下在CEF框架中支持 COM/ActiveX控件，以兼容传统IE内核ActiveX插件的方法。
+只简要介绍下在CEF框架中支持 COM/ActiveX控件，以兼容传统IE内核ActiveX插件的方法。
 
 项目地址：
 
